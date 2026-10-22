@@ -8,7 +8,7 @@ function SearchBar({ query, onQueryChange, rarity, onRarityChange }) {
     function handleKeyDown(event) {
       if (event.key === "Escape") {
         onQueryChange("");
-      } else if (event.key === "/" && document.activeElement !== inputRef.current) {
+      } else if (event.key === "/" && !event.target.closest("input, textarea, select, [contenteditable]")) {
         event.preventDefault();
         inputRef.current?.focus();
       }
